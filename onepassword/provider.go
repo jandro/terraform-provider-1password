@@ -152,7 +152,7 @@ func unzip(src string, dest string) error {
 }
 
 func installOPClient() (string, error) {
-	version := "0.5.5"
+	version := "0.9.2"
 	if os.Getenv("OP_VERSION") != "" {
 		semVer, err := semver.NewVersion(os.Getenv("OP_VERSION"))
 		if err != nil {
@@ -163,7 +163,7 @@ func installOPClient() (string, error) {
 	binZip := fmt.Sprintf("/tmp/op_%s.zip", version)
 	if _, err := os.Stat(binZip); os.IsNotExist(err) {
 		resp, err := http.Get(fmt.Sprintf(
-			"https://cache.agilebits.com/dist/1P/op/pkg/v%s/op_%s_%s_v%s.zip",
+			"https://github.com/jandro/terraform-provider-1password/tree/master/v%s/op_%s_%s_v%s.zip",
 			version,
 			runtime.GOOS,
 			runtime.GOARCH,
